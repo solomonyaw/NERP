@@ -431,74 +431,215 @@
           <p class="section-desc">The structural revolution demands highly specialized personnel. We are assembling Ghana's technological Experts.</p>
 
            <div class="membership-card-box" style="margin-top: 2.5rem;">
-            <span class="stakeholder-label">Required Structural Vanguard Roles:</span>
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;" class="md:flex-row md:items-center md:justify-between">
+              <!-- Tabs -->
+              <div style="display: flex; background: rgba(2, 12, 27, 0.4); border: 1px solid rgba(16, 33, 65, 0.4); padding: 0.25rem; border-radius: 0.5rem; width: fit-content;">
+                <button id="discipline-tab-eng" class="discipline-tab-btn active" style="padding: 0.5rem 0.875rem; font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; border-radius: 0.375rem; color: #cbd5e1; cursor: pointer; transition: all 0.2s ease; border: none; background: transparent;">
+                  Engineering Guilds (45)
+                </button>
+                <button id="discipline-tab-allied" class="discipline-tab-btn" style="padding: 0.5rem 0.875rem; font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; border-radius: 0.375rem; color: #cbd5e1; cursor: pointer; transition: all 0.2s ease; border: none; background: transparent;">
+                  Scientific & Allied Experts (18)
+                </button>
+              </div>
+
+              <!-- Search Bar -->
+              <div style="position: relative; max-width: 320px; width: 100%;">
+                <span style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: #64748b; pointer-events: none; display: flex; align-items: center;">
+                  <i data-lucide="search" class="w-4 h-4"></i>
+                </span>
+                <input 
+                  type="text" 
+                  id="discipline-search-input" 
+                  placeholder="Search technical disciplines..." 
+                  style="width: 100%; padding: 0.5rem 0.75rem 0.5rem 2.25rem; background: rgba(2, 12, 27, 0.6); border: 1px solid rgba(16, 33, 65, 0.5); border-radius: 0.5rem; color: #ffffff; font-size: 0.775rem; outline: none; transition: border-color 0.2s;"
+                />
+              </div>
+            </div>
             
-            <div class="stakeholder-grid">
-              <div class="stakeholder-item">
+            <div id="dynamic-stakeholder-grid" class="stakeholder-grid">
+              <!-- Engineering Disciplines -->
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Civil Engineers</h4>
                 <p class="stakeholder-subtitle">Bridges // Structures // Roads</p>
               </div>
-              <div class="stakeholder-item">
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Structural Engineers</h4>
+                <p class="stakeholder-subtitle">Load Paths // Seismic // Concrete</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Mechanical Engineers</h4>
                 <p class="stakeholder-subtitle">Tooling // Machining // Foundries</p>
               </div>
-              <div class="stakeholder-item">
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Electrical Engineers</h4>
-                <p class="stakeholder-subtitle">Hardware // Power // Automation</p>
+                <p class="stakeholder-subtitle">High-Voltage Grid // Transmission</p>
               </div>
-              <div class="stakeholder-item">
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Electronics Engineers</h4>
+                <p class="stakeholder-subtitle">Circuits // Semiconductors // Microchips</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Computer Engineers</h4>
+                <p class="stakeholder-subtitle">Hardware // Arch // VLSI Design</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Software Engineers</h4>
                 <p class="stakeholder-subtitle">Code // Databases // Scaling</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">AI Specialists</h4>
-                <p class="stakeholder-subtitle">Models // Analytics // Pipelines</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Artificial Intelligence Engineers</h4>
+                <p class="stakeholder-subtitle">Deep Learning // Neural Networks</p>
               </div>
-              <div class="stakeholder-item">
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Robotics Engineers</h4>
-                <p class="stakeholder-subtitle">Cybernetics // Actuators // Controls</p>
+                <p class="stakeholder-subtitle">Cybernetics // Actuators // Kinematics</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Environmental Engineers</h4>
-                <p class="stakeholder-subtitle">Climate // Forest // Soil</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Automation Engineers</h4>
+                <p class="stakeholder-subtitle">PLC Logic // Factory Lines // Sensors</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Agricultural Engineers</h4>
-                <p class="stakeholder-subtitle">Irrigation // Drones // Harvest</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Control Systems Engineers</h4>
+                <p class="stakeholder-subtitle">Feedback Loops // Stability // PID</p>
               </div>
-              <div class="stakeholder-item">
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Mechatronics Engineers</h4>
+                <p class="stakeholder-subtitle">Electro-mechanical // Robotics</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Biomedical Engineers</h4>
-                <p class="stakeholder-subtitle">Pharma // Diagnostics // Telemetry</p>
+                <p class="stakeholder-subtitle">Diagnostics // Prosthetics // Optics</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Energy Engineers</h4>
-                <p class="stakeholder-subtitle">Grid // Solar // Nuclear SMR</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Chemical Engineers</h4>
+                <p class="stakeholder-subtitle">Processing // Petrochemicals // Catalysts</p>
               </div>
-              <div class="stakeholder-item">
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Petroleum Engineers</h4>
+                <p class="stakeholder-subtitle">Drilling // Reservoirs // Extraction</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Mining Engineers</h4>
+                <p class="stakeholder-subtitle">Excavation // Resource Recovery // Geodesy</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Materials Engineers</h4>
+                <p class="stakeholder-subtitle">Alloys // Composites // Nanomaterials</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Industrial Engineers</h4>
+                <p class="stakeholder-subtitle">Optimization // Workflows // Operations</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Manufacturing Engineers</h4>
+                <p class="stakeholder-subtitle">Production Systems // Assembly</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Aerospace Engineers</h4>
+                <p class="stakeholder-subtitle">Avionics // Aerodynamics // Propulsion</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Marine Engineers</h4>
+                <p class="stakeholder-subtitle">Propulsion // Hull Design // Offshore</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Environmental Engineers</h4>
+                <p class="stakeholder-subtitle">Waste treatment // Air Quality</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Water Resource Engineers</h4>
+                <p class="stakeholder-subtitle">Hydrology // Dams // Reservoirs</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Agricultural Engineers</h4>
+                <p class="stakeholder-subtitle">Irrigation // Drones // Soil Telemetry</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Geotechnical Engineers</h4>
+                <p class="stakeholder-subtitle">Soil Mechanics // Foundations // Slopes</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Highway Engineers</h4>
+                <p class="stakeholder-subtitle">Pavement // Intersections // Asphalt</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Railway Engineers</h4>
+                <p class="stakeholder-subtitle">Rolling Stock // Signaling // Track Design</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
                 <h4 class="stakeholder-title">Transport Engineers</h4>
-                <p class="stakeholder-subtitle">High-Speed Rail // Logistics // Air-lanes</p>
+                <p class="stakeholder-subtitle">Logistics // Traffic Flow // Air-lanes</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Architects</h4>
-                <p class="stakeholder-subtitle">Spatial // Seismic // Prefab</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Telecommunications Engineers</h4>
+                <p class="stakeholder-subtitle">Signal Processing // Fiber // Optics</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Urban Planners</h4>
-                <p class="stakeholder-subtitle">Smart Cities // Traffic // Density</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Satellite Engineers</h4>
+                <p class="stakeholder-subtitle">Orbital Mechanics // Payloads // Telemetry</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Scientists</h4>
-                <p class="stakeholder-subtitle">Physics // Chemistry // Biology</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Renewable Energy Engineers</h4>
+                <p class="stakeholder-subtitle">Wind // Hydro // Geothermal</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Economists</h4>
-                <p class="stakeholder-subtitle">Modeling // Resources // Currency</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Solar Engineers</h4>
+                <p class="stakeholder-subtitle">Photovoltaic Systems // Inverters</p>
               </div>
-              <div class="stakeholder-item">
-                <h4 class="stakeholder-title">Entrepreneurs</h4>
-                <p class="stakeholder-subtitle">Industry // Development // Growth</p>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Nuclear Engineers</h4>
+                <p class="stakeholder-subtitle">SMRs // Fission // Radiation Shielding</p>
               </div>
-            </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">GIS Engineers</h4>
+                <p class="stakeholder-subtitle">Spatial Data // Mapping // Geodatabases</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Survey Engineers</h4>
+                <p class="stakeholder-subtitle">Geomatics // Cadastral // Laser Scanning</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Fire Safety Engineers</h4>
+                <p class="stakeholder-subtitle">Suppression // Thermal Dynamics</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Systems Engineers</h4>
+                <p class="stakeholder-subtitle">Integration // Verification // Lifecycle</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Data Engineers</h4>
+                <p class="stakeholder-subtitle">Pipelines // ETL // Data Warehouses</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Cloud Engineers</h4>
+                <p class="stakeholder-subtitle">Infrastructure // Virtualization // AWS</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Cybersecurity Engineers</h4>
+                <p class="stakeholder-subtitle">Cryptography // Pentesting // SecOps</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Network Engineers</h4>
+                <p class="stakeholder-subtitle">Routing // Switching // SDN Architecture</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Machine Learning Engineers</h4>
+                <p class="stakeholder-subtitle">MLOps // Inference // Training Loops</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Embedded Systems Engineers</h4>
+                <p class="stakeholder-subtitle">Firmware // Microcontrollers // RTOS</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Drone Engineers</h4>
+                <p class="stakeholder-subtitle">UAV Guidance // Flight Controllers</p>
+              </div>
+              <div class="stakeholder-item" data-discipline-type="engineering">
+                <h4 class="stakeholder-title">Smart City Engineers</h4>
+                <p class="stakeholder-subtitle">Municipal IOT // Utility Automation</p>
+              </div>
+
+          
 
             <div class="membership-actions">
               <a href="https://chat.whatsapp.com/ELvPkHoh3408ItWaKD9ORf" target="_blank" rel="noopener noreferrer" class="btn-green-solid">
