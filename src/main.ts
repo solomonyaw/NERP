@@ -28,7 +28,8 @@ import {
   Menu,
   Play,
   Pause,
-  ArrowUp
+  ArrowUp,
+  Search
 } from 'lucide';
 
 // --- DATA STRUCTURES ---
@@ -301,6 +302,8 @@ const GALLERY_ITEMS = [
   }
 ];
 
+
+
 // --- APP INITIALIZATION ---
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -310,7 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
       Zap, PlaneTakeoff, Sprout, Factory, Droplet, Shield, CloudRain,
       GraduationCap, HeartPulse, Wifi, Building, ArrowUpRight, Download,
       Info, Calendar, Flag, Award, Milestone, CheckCircle2, ChevronRight,
-      Quote, MessageSquare, BookOpen, ChevronLeft, X, Menu, Play, Pause, ArrowUp
+      Quote, MessageSquare, BookOpen, ChevronLeft, X, Menu, Play, Pause, ArrowUp,
+      Search
     }
   });
 
@@ -826,4 +830,78 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 11. Dynamic Specialized Disciplines Search & Tabs
+  let activeDisciplineTab: 'engineering' | 'allied' = 'engineering';
+  let disciplineSearchQuery = "";
+
+  const tabEngBtn = document.getElementById("discipline-tab-eng");
+  const tabAlliedBtn = document.getElementById("discipline-tab-allied");
+  const searchInput = document.getElementById("discipline-search-input") as HTMLInputElement | null;
+  const gridContainer = document.getElementById("discipline-grid") || document.getElementById("dynamic-stakeholder-grid");
+  const emptyState = document.getElementById("dynamic-stakeholder-empty");
+  const queryHighlight = document.getElementById("search-query-highlight");
+
+  function renderDisciplines() {
+    const gridItems = document.querySelectorAll(".stakeholder-item[data-discipline-type]");
+    if (!gridContainer || gridItems.length === 0) return;
+
+    const query = disciplineSearchQuery.toLowerCase().trim();
+    let visibleCount = 0;
+
+    gridItems.forEach(item => {
+      const type = item.getAttribute("data-discipline-type");
+      const title = item.querySelector(".stakeholder-title")?.textContent || "";
+      const subtitle = item.querySelector(".stakeholder-subtitle")?.textContent || "";
+      
+      const typeMatches = (type === activeDisciplineTab);
+      const searchMatches = query === "" || 
+                            title.toLowerCase().includes(query) || 
+                            subtitle.toLowerCase().includes(query);
+
+      if (typeMatches && searchMatches) {
+        (item as HTMLElement).style.display = "";
+        visibleCount++;
+      } else {
+        (item as HTMLElement).style.display = "none";
+      }
+    });
+
+    if (visibleCount === 0) {
+      gridContainer.style.display = 'none';
+      if (emptyState) {
+        emptyState.style.display = 'block';
+        if (queryHighlight) queryHighlight.textContent = disciplineSearchQuery;
+      }
+    } else {
+      gridContainer.style.display = 'grid';
+      if (emptyState) emptyState.style.display = 'none';
+    }
+  }
+
+  if (tabEngBtn && tabAlliedBtn) {
+    tabEngBtn.addEventListener("click", () => {
+      activeDisciplineTab = 'engineering';
+      tabEngBtn.classList.add("active");
+      tabAlliedBtn.classList.remove("active");
+      renderDisciplines();
+    });
+
+    tabAlliedBtn.addEventListener("click", () => {
+      activeDisciplineTab = 'allied';
+      tabAlliedBtn.classList.add("active");
+      tabEngBtn.classList.remove("active");
+      renderDisciplines();
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      disciplineSearchQuery = (e.target as HTMLInputElement).value;
+      renderDisciplines();
+    });
+  }
+
+  // Initial render
+  renderDisciplines();
 });
