@@ -1,0 +1,6 @@
+{
+  "name": "National Engineering Revolution Party",
+  "description": "A futuristic, technology-driven one-page website for the National Engineering Revolution Party (NERP) – Ghana, a movement advocating for engineering solutions, scientific innovation, and long-term national planning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
